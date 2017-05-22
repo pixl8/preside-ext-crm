@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <tab id="main">
+        <fieldset id="main">
+            <field binding="organisation_address.is_primary" />
+            <field binding="organisation_address.is_head_office" />
+            <field binding="organisation_address.address_type" />
+            <field binding="organisation_address.line1" />
+            <field binding="organisation_address.line2" />
+            <field binding="organisation_address.line3" />
+            <field binding="organisation_address.town" />
+            <field binding="organisation_address.county" />
+            <field binding="organisation_address.post_code" />
+            <field binding="organisation_address.country" />
+        </fieldset>
+    </tab>
+</form>

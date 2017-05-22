@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <tab id="basic" sortorder="10">
+        <fieldset id="basic" sortorder="10">
+            <field binding="organisation.name"       control="textinput" sortorder="10" />
+            <field binding="organisation.trading_as" control="textinput" sortorder="20" />
+            <field binding="organisation.vat_number"                     sortorder="30" />
+            <field binding="organisation.type"                           sortorder="40" />
+            <field binding="organisation.status"                         sortorder="50" />
+        </fieldset>
+    </tab>
+    <tab id="communication" sortorder="20">
+        <fieldset id="email" sortorder="10">
+            <field binding="organisation.primary_email" control="emailinput" sortorder="10" />
+            <field binding="organisation.primary_email_type"                 sortorder="20" />
+            <field binding="organisation.email2"        control="emailinput" sortorder="30" />
+            <field binding="organisation.email2_type"                        sortorder="40" />
+            <field binding="organisation.email3"        control="emailinput" sortorder="50" />
+            <field binding="organisation.email3_type"                        sortorder="60" />
+        </fieldset>
+        <fieldset id="phone" sortorder="20">
+            <field binding="organisation.primary_phone" control="textInput" sortorder="10" />
+            <field binding="organisation.primary_phone_type"                sortorder="10" />
+            <field binding="organisation.phone2"        control="textInput" sortorder="10" />
+            <field binding="organisation.phone2_type"                       sortorder="10" />
+            <field binding="organisation.phone3"        control="textInput" sortorder="10" />
+            <field binding="organisation.phone3_type"                       sortorder="10" />
+        </fieldset>
+        <fieldset id="web" sortorder="30">
+            <field binding="organisation.website"   control="textinput" sortorder="10" />
+            <field binding="organisation.twitter"   control="textinput" sortorder="10" />
+            <field binding="organisation.facebook"  control="textinput" sortorder="10" />
+            <field binding="organisation.instagram" control="textinput" sortorder="10" />
+            <field binding="organisation.linkedin"  control="textinput" sortorder="10" />
+        </fieldset>
+    </tab>
+    <tab id="addresses" sortorder="40">
+        <fieldset id="addresses" sortorder="10">
+            <field binding="organisation.addresses" control="onetomanymanager" sortorder="10" />
+        </fieldset>
+    </tab>
+</form>

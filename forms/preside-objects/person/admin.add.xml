@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <tab id="basic" sortorder="10">
+        <fieldset id="basic" sortorder="10">
+            <field binding="person.title"      control="select"         sortorder="10"  values="mr,mrs" labels="preside-objects.person:title.options.mr,preside-objects.person:title.options.mrs" />
+            <field binding="person.first_name"                          sortorder="20" />
+            <field binding="person.middle_names"                        sortorder="30" />
+            <field binding="person.last_name"                           sortorder="40" />
+            <field binding="person.honours"                             sortorder="50" />
+            <field binding="person.known_as"                            sortorder="60" />
+            <field binding="person.initials" control="autoabbreviation" sortorder="70" basedon="first_name,last_name" />
+            <field binding="person.date_of_birth"                       sortorder="80" />
+            <field binding="person.salutation" control="textInput"      sortorder="90" />
+            <field binding="person.gender"     control="select"         sortorder="100" values="m,f"    labels="preside-objects.person:gender.options.male,preside-objects.person:gender.options.female" />
+            <field binding="person.job_title"  control="textInput"      sortorder="110" />
+            <field binding="person.photo"                               sortorder="120" />
+            <field binding="person.type"                                sortorder="130" />
+            <field binding="person.status"                              sortorder="140" />
+        </fieldset>
+    </tab>
+    <tab id="communication" sortorder="20">
+        <fieldset id="email" sortorder="10">
+            <field binding="person.primary_email" control="emailinput" sortorder="10" />
+            <field binding="person.primary_email_type"                 sortorder="20" />
+            <field binding="person.email2"        control="emailinput" sortorder="30" />
+            <field binding="person.email2_type"                        sortorder="40" />
+            <field binding="person.email3"        control="emailinput" sortorder="50" />
+            <field binding="person.email3_type"                        sortorder="60" />
+        </fieldset>
+        <fieldset id="phone" sortorder="20">
+            <field binding="person.primary_phone" control="textInput" sortorder="10" />
+            <field binding="person.primary_phone_type"                sortorder="20" />
+            <field binding="person.phone2"        control="textInput" sortorder="30" />
+            <field binding="person.phone2_type"                       sortorder="40" />
+            <field binding="person.phone3"        control="textInput" sortorder="50" />
+            <field binding="person.phone3_type"                       sortorder="60" />
+        </fieldset>
+        <fieldset id="web" sortorder="30">
+            <field binding="person.website"   control="textinput" sortorder="10" />
+            <field binding="person.twitter"   control="textinput" sortorder="20" />
+            <field binding="person.facebook"  control="textinput" sortorder="30" />
+            <field binding="person.instagram" control="textinput" sortorder="40" />
+            <field binding="person.linkedin"  control="textinput" sortorder="50" />
+        </fieldset>
+    </tab>
+</form>

@@ -1,0 +1,26 @@
+{
+    "name":"Preside Extension: CRM",
+    "version":"1.0.0",
+    "author":"Pixl8 Interactive",
+    "directory":"application/extensions",
+    "private":true,
+    "location":"https://github.com/pixl8/preside-ext-crm/archive/v1.0.0.zip",
+    "repository":{
+        "type":"git",
+        "URL":"https://github.com/pixl8/preside-ext-crm.git"
+    },
+    "slug":"preside-ext-crm",
+    "ignore":[
+        ".git/*",
+        ".gitignore",
+        ".travis.yml",
+        ".twgit_features_subject",
+        "test.sh"
+    ],
+    "devDependencies":{
+        "testbox":"2.2.0"
+    },
+    "installPaths":{
+        "testbox":"tests/testbox"
+    }
+}

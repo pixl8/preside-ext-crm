@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <tab id="main" sortorder="10">
+        <fieldset id="main" sortorder="10">
+            <field binding="contact.organisation"         sortorder="10" />
+            <field binding="contact.person"               sortorder="20" />
+            <field binding="contact.job_title"            sortorder="30" />
+            <field binding="contact.is_main_contact"      sortorder="40" />
+            <field binding="contact.is_main_organisation" sortorder="50" />
+            <field binding="contact.type"                 sortorder="60" />
+            <field binding="contact.status"               sortorder="70" />
+        </fieldset>
+    </tab>
+</form>
