@@ -2,8 +2,8 @@
 * @versioned true
 */
 component {
-    property name="organisation" relationship="many-to-one" relatedTo="organisation"     required=true uniqueindexes="contact|1";
-    property name="person"       relationship="many-to-one" relatedTo="person"           required=true uniqueindexes="contact|2";
+    property name="organisation" relationship="many-to-one" relatedTo="organisation"     required=true uniqueindexes="contact|1" autoGenerateFilterExpressions=true;
+    property name="person"       relationship="many-to-one" relatedTo="person"           required=true uniqueindexes="contact|2" autoGenerateFilterExpressions=true;
     
     property name="job_title"            type="string"  dbtype="varchar" maxLength="256" required=false;
     property name="is_main_contact"      type="boolean" dbtype="boolean"                 required=false;
