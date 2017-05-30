@@ -30,5 +30,12 @@ component {
         settings.adminRoles.sysAdmin.append( "organisationmanager.*" );
         settings.adminRoles.sysAdmin.append( "personmanager.*"       );
         settings.adminRoles.sysAdmin.append( "contactmanager.*"      );
+
+        settings.email.recipientTypes.person = {
+              parameters             = [ "first_name", "last_name", "primary_email" ]
+            , filterObject           = "person"
+            , gridFields             = [ "first_name", "last_name", "primary_email" ]
+            , recipientIdLogProperty = "person_recipient"
+        };
     }
 }
