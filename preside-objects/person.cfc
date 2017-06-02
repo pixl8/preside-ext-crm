@@ -1,5 +1,6 @@
 /**
-* @versioned true
+* @versioned        true
+* @dataExportFields id,title,first_name,last_name,date_of_birth,salutation,gender,job_title,type,status,primary_email,primary_phone,website,datecreated,datemodified
 */
 component {
     property name="title"              type="string" dbtype="varchar" maxLength="16"   required=false;

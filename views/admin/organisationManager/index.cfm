@@ -29,5 +29,7 @@
 		, multiActionUrl      = event.buildAdminLink( linkTo='organisationManager.multiAction' )
 		, gridFields          = gridFields
 		, batchEditableFields = batchEditableFields
+		, allowDataExport     = true
+        , dataExportUrl       = event.buildAdminLink( linkTo='organisationManager.exportDataAction' )
 	} )#
 </cfoutput>

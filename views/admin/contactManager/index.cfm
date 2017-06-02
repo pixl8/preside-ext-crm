@@ -29,5 +29,7 @@
 		, multiActionUrl      = event.buildAdminLink( linkTo='contactManager.multiAction' )
 		, gridFields          = gridFields
 		, batchEditableFields = batchEditableFields
+		, allowDataExport     = true
+        , dataExportUrl       = event.buildAdminLink( linkTo='contactManager.exportDataAction' )
 	} )#
 </cfoutput>

@@ -1,6 +1,7 @@
 /**
-* @labelfield name
-* @versioned  true
+* @labelfield       name
+* @versioned        true
+* @dataExportFields id,name,trading_as,vat_number,type,status,primary_email,primary_phone,website,datecreated,datemodified
 */
 component {
     property name="name"               type="string"              dbtype="varchar"              maxLength="256" required=true;
