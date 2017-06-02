@@ -271,6 +271,17 @@ component extends="preside.system.base.AdminHandler" {
 		);
 	}
 
+	public void function exportDataAction( event, rc, prc ) {
+        _checkPermissions( event=event, key="read" );
+
+        runEvent(
+              event          = "admin.DataManager._exportDataAction"
+            , prePostExempt  = true
+            , private        = true
+            , eventArguments = { objectName="organisation" }
+        );
+    }
+
 // private utility
 	private void function _checkPermissions( required any event, required string key ) {
 		if ( !hasCmsPermission( "organisationmanager." & arguments.key ) ) {

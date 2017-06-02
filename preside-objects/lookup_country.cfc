@@ -1,5 +1,6 @@
 /**
 * @dataManagerGroup lookups
+* @dataExportFields id,label,code,short_description,full_description,datecreated,datemodified
 */
 component {
     property name="label" uniqueindexes="label";

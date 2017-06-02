@@ -1,5 +1,6 @@
 /**
 * @versioned true
+* @dataExportFields id,organisation,person,job_title,is_main_contact,is_main_organisation,type,status,datecreated,datemodified
 */
 component {
     property name="organisation" relationship="many-to-one" relatedTo="organisation"     required=true uniqueindexes="contact|1" autoGenerateFilterExpressions=true;
