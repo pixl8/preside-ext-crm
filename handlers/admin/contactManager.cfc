@@ -25,7 +25,6 @@ component extends="preside.system.base.AdminHandler" {
 		prc.canDelete = hasCmsPermission( "contactmanager.delete" );
 
 		prc.batchEditableFields = dataManagerService.listBatchEditableFields( "contact" );
-
 	}
 
 	function add( event, rc, prc ) {
@@ -39,6 +38,7 @@ component extends="preside.system.base.AdminHandler" {
 			, link  = event.buildAdminLink( linkTo="contactManager.add" )
 		);
 	}
+
 	function addAction( event, rc, prc ) {
 		_checkPermissions( event=event, key="add" );
 
@@ -56,7 +56,6 @@ component extends="preside.system.base.AdminHandler" {
 				, auditType         = "contactmanager"
 				, auditAction       = "add_record"
 				, draftsEnabled     = false
-
 			}
 		);
 	}
@@ -87,6 +86,7 @@ component extends="preside.system.base.AdminHandler" {
 			, link  = event.buildAdminLink( linkTo="contactManager.edit", queryString="id=#id#" )
 		);
 	}
+
 	function editAction( event, rc, prc ) {
 		_checkPermissions( event=event, key="edit" );
 
@@ -112,7 +112,6 @@ component extends="preside.system.base.AdminHandler" {
 				, auditType         = "contactmanager"
 				, auditAction       = "edit"
 				, draftsEnabled     = false
-
 			}
 		);
 	}
@@ -195,7 +194,7 @@ component extends="preside.system.base.AdminHandler" {
 			, auditAction        = "batch_edit_record"
 		);
 
-		if( success ) {
+		if ( success ) {
 			messageBox.info( translateResource( uri="contactmanager:batchedit.confirmation" ) );
 		} else {
 			messageBox.error( translateResource( uri="contactmanager:batchedit.error" ) );
@@ -231,7 +230,6 @@ component extends="preside.system.base.AdminHandler" {
 				  object        = "contact"
 				, gridFields    = "organisation,person,job_title,is_main_contact,is_main_organisation,type,status,datecreated,datemodified"
 				, actionsView   = "admin.contactManager._gridActions"
-
 			}
 		);
 	}
@@ -287,5 +285,4 @@ component extends="preside.system.base.AdminHandler" {
 			event.adminAccessDenied();
 		}
 	}
-
 }

@@ -2,7 +2,7 @@
 <form>
     <tab id="basic" sortorder="10">
         <fieldset id="basic" sortorder="10">
-            <field binding="person.title"      control="select"         sortorder="10"  values="mr,mrs" labels="preside-objects.person:title.options.mr,preside-objects.person:title.options.mrs" />
+            <field binding="person.title"                               sortorder="10" />
             <field binding="person.first_name"                          sortorder="20" />
             <field binding="person.middle_names"                        sortorder="30" />
             <field binding="person.last_name"                           sortorder="40" />

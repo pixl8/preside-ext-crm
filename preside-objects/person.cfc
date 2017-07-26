@@ -3,7 +3,7 @@
 * @dataExportFields id,title,first_name,last_name,date_of_birth,salutation,gender,job_title,type,status,primary_email,primary_phone,website,datecreated,datemodified
 */
 component {
-    property name="title"              type="string" dbtype="varchar" maxLength="16"   required=false;
+    
     property name="initials"           type="string" dbtype="varchar" maxLength="16"   required=false;
     property name="first_name"         type="string" dbtype="varchar" maxLength="128"  required=true;
     property name="middle_names"       type="string" dbtype="varchar" maxLength="128"  required=false;
@@ -15,6 +15,7 @@ component {
     property name="known_as"           type="string" dbtype="varchar" maxLength="128"  required=false;
     property name="job_title"          type="string" dbtype="varchar" maxLength="256"  required=false;
 
+    property name="title"              relationship="many-to-one" relatedTo="lookup_person_title"  required=false;
     property name="photo"              relationship="many-to-one" relatedTo="asset"                required=false allowedTypes="image";
     property name="type"               relationship="many-to-one" relatedTo="lookup_person_type"   required=true;
     property name="status"             relationship="many-to-one" relatedTo="lookup_person_status" required=true;
