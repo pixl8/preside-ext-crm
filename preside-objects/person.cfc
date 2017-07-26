@@ -40,5 +40,6 @@ component {
     property name="instagram"          type="string" dbtype="varchar" maxLength="256" required=false;
     property name="linkedin"           type="string" dbtype="varchar" maxLength="256" required=false;
 
-    property name="addresses"          relationship="one-to-many" relatedTo="person_address" relationshipKey="person";
+    property name="addresses"          relationship="one-to-many"  relatedTo="person_address" relationshipKey="person";
+    property name="organisations"      relationship="many-to-many" relatedTo="organisation"   relatedVia="contact";
 }
