@@ -25,7 +25,6 @@ component extends="preside.system.base.AdminHandler" {
 		prc.canDelete = hasCmsPermission( "personmanager.delete" );
 
 		prc.batchEditableFields = dataManagerService.listBatchEditableFields( "person" );
-
 	}
 
 	function add( event, rc, prc ) {
@@ -39,6 +38,7 @@ component extends="preside.system.base.AdminHandler" {
 			, link  = event.buildAdminLink( linkTo="personManager.add" )
 		);
 	}
+
 	function addAction( event, rc, prc ) {
 		_checkPermissions( event=event, key="add" );
 
@@ -56,7 +56,6 @@ component extends="preside.system.base.AdminHandler" {
 				, auditType         = "personmanager"
 				, auditAction       = "add_record"
 				, draftsEnabled     = false
-
 			}
 		);
 	}
@@ -87,6 +86,7 @@ component extends="preside.system.base.AdminHandler" {
 			, link  = event.buildAdminLink( linkTo="personManager.edit", queryString="id=#id#" )
 		);
 	}
+
 	function editAction( event, rc, prc ) {
 		_checkPermissions( event=event, key="edit" );
 
@@ -112,7 +112,6 @@ component extends="preside.system.base.AdminHandler" {
 				, auditType         = "personmanager"
 				, auditAction       = "edit"
 				, draftsEnabled     = false
-
 			}
 		);
 	}
@@ -195,7 +194,7 @@ component extends="preside.system.base.AdminHandler" {
 			, auditAction        = "batch_edit_record"
 		);
 
-		if( success ) {
+		if ( success ) {
 			messageBox.info( translateResource( uri="personmanager:batchedit.confirmation" ) );
 		} else {
 			messageBox.error( translateResource( uri="personmanager:batchedit.error" ) );
@@ -231,7 +230,6 @@ component extends="preside.system.base.AdminHandler" {
 				  object        = "person"
 				, gridFields    = "title,first_name,last_name,type,status,datecreated,datemodified"
 				, actionsView   = "admin.personManager._gridActions"
-
 			}
 		);
 	}
@@ -287,5 +285,4 @@ component extends="preside.system.base.AdminHandler" {
 			event.adminAccessDenied();
 		}
 	}
-
 }
