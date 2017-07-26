@@ -25,7 +25,6 @@ component extends="preside.system.base.AdminHandler" {
 		prc.canDelete = hasCmsPermission( "organisationmanager.delete" );
 
 		prc.batchEditableFields = dataManagerService.listBatchEditableFields( "organisation" );
-
 	}
 
 	function add( event, rc, prc ) {
@@ -39,6 +38,7 @@ component extends="preside.system.base.AdminHandler" {
 			, link  = event.buildAdminLink( linkTo="organisationManager.add" )
 		);
 	}
+
 	function addAction( event, rc, prc ) {
 		_checkPermissions( event=event, key="add" );
 
@@ -56,7 +56,6 @@ component extends="preside.system.base.AdminHandler" {
 				, auditType         = "organisationmanager"
 				, auditAction       = "add_record"
 				, draftsEnabled     = false
-
 			}
 		);
 	}
@@ -87,6 +86,7 @@ component extends="preside.system.base.AdminHandler" {
 			, link  = event.buildAdminLink( linkTo="organisationManager.edit", queryString="id=#id#" )
 		);
 	}
+
 	function editAction( event, rc, prc ) {
 		_checkPermissions( event=event, key="edit" );
 
@@ -112,7 +112,6 @@ component extends="preside.system.base.AdminHandler" {
 				, auditType         = "organisationmanager"
 				, auditAction       = "edit"
 				, draftsEnabled     = false
-
 			}
 		);
 	}
@@ -153,7 +152,6 @@ component extends="preside.system.base.AdminHandler" {
 		messageBox.error( translateResource( "cms:datamanager.invalid.multirecord.action.error" ) );
 		setNextEvent( url=event.buildAdminLink( linkTo="organisationManager" ) );
 	}
-
 
 	function batchEditField( event, rc, prc ) {
 		var ids         = Trim( rc.id    ?: "" );
@@ -196,7 +194,7 @@ component extends="preside.system.base.AdminHandler" {
 			, auditAction        = "batch_edit_record"
 		);
 
-		if( success ) {
+		if ( success ) {
 			messageBox.info( translateResource( uri="organisationmanager:batchedit.confirmation" ) );
 		} else {
 			messageBox.error( translateResource( uri="organisationmanager:batchedit.error" ) );
@@ -232,7 +230,6 @@ component extends="preside.system.base.AdminHandler" {
 				  object        = "organisation"
 				, gridFields    = "name,trading_as,type,status,datecreated,datemodified"
 				, actionsView   = "admin.organisationManager._gridActions"
-
 			}
 		);
 	}
@@ -288,5 +285,4 @@ component extends="preside.system.base.AdminHandler" {
 			event.adminAccessDenied();
 		}
 	}
-
 }
