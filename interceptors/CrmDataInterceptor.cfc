@@ -12,8 +12,6 @@ component {
         
         _maybeEnsureUniquePrimaryAddress( interceptData );
         _maybeEnsureUniqueHeadOfficeOrganisationAddress( interceptData );
-        _maybeEnsureUniqueMainOrganisationForPerson( interceptData );
-        _maybeEnsureUniqueMainPersonForOrganisation( interceptData );
         _maybeGenerateLabel( interceptData );
     }
 
@@ -27,8 +25,6 @@ component {
         if ( len( arguments.interceptData.id ?: "" ) ) {
             _maybeEnsureUniquePrimaryAddress( interceptData );
             _maybeEnsureUniqueHeadOfficeOrganisationAddress( interceptData );
-            _maybeEnsureUniqueMainOrganisationForPerson( interceptData );
-            _maybeEnsureUniqueMainPersonForOrganisation( interceptData );
             _maybeGenerateLabel( interceptData );
         }
     }
@@ -69,33 +65,11 @@ component {
         }
     }
 
-    private void function _maybeEnsureUniqueMainOrganisationForPerson( interceptData ) {
-
-        var objectName = arguments.interceptData.objectname ?: "";
-
-        if ( objectName == "contact" ) {
-            crmDataService.ensureUniqueMainOrganisationForPerson(
-                objectData = arguments.interceptData.data ?: {}
-            );
-        }
-    }
-
-    private void function _maybeEnsureUniqueMainPersonForOrganisation( interceptData ) {
-
-        var objectName = arguments.interceptData.objectname ?: "";
-
-        if ( objectName == "contact" ) {
-            crmDataService.ensureUniqueMainPersonForOrganisation(
-                objectData = arguments.interceptData.data ?: {}
-            );
-        }
-    }
-
     private void function _maybeGenerateLabel( interceptData ) {
 
         var objectName = arguments.interceptData.objectname ?: "";
 
-        if ( ![ "person", "contact", "organisation_address", "person_address" ].findNoCase( objectName ) ) {
+        if ( ![ "person", "organisation_address", "person_address" ].findNoCase( objectName ) ) {
             return;
         }
         var objectData = arguments.interceptData.data ?: {};

@@ -2,20 +2,21 @@
 <form>
     <tab id="basic" sortorder="10">
         <fieldset id="basic" sortorder="10">
-            <field binding="person.title"                               sortorder="10" />
-            <field binding="person.first_name"                          sortorder="20" />
-            <field binding="person.middle_names"                        sortorder="30" />
-            <field binding="person.last_name"                           sortorder="40" />
-            <field binding="person.honours"                             sortorder="50" />
-            <field binding="person.known_as"                            sortorder="60" />
-            <field binding="person.initials" control="autoabbreviation" sortorder="70" basedon="first_name,last_name" />
-            <field binding="person.date_of_birth"                       sortorder="80" />
-            <field binding="person.salutation" control="textInput"      sortorder="90" />
-            <field binding="person.gender"     control="select"         sortorder="100" values="m,f"    labels="preside-objects.person:gender.options.male,preside-objects.person:gender.options.female" />
-            <field binding="person.job_title"  control="textInput"      sortorder="110" />
-            <field binding="person.photo"                               sortorder="120" />
-            <field binding="person.type"                                sortorder="130" />
-            <field binding="person.status"                              sortorder="140" />
+            <field binding="person.organisation"                        sortorder="10" />
+            <field binding="person.title"                               sortorder="20" />
+            <field binding="person.first_name"                          sortorder="30" />
+            <field binding="person.middle_names"                        sortorder="40" />
+            <field binding="person.last_name"                           sortorder="50" />
+            <field binding="person.honours"                             sortorder="60" />
+            <field binding="person.known_as"                            sortorder="70" />
+            <field binding="person.initials" control="autoabbreviation" sortorder="80" basedon="first_name,last_name" />
+            <field binding="person.date_of_birth"                       sortorder="90" />
+            <field binding="person.salutation" control="textInput"      sortorder="100" />
+            <field binding="person.gender"     control="select"         sortorder="110" values="m,f"    labels="preside-objects.person:gender.options.male,preside-objects.person:gender.options.female" />
+            <field binding="person.job_title"  control="textInput"      sortorder="120" />
+            <field binding="person.photo"                               sortorder="130" />
+            <field binding="person.type"                                sortorder="140" />
+            <field binding="person.status"                              sortorder="150" />
         </fieldset>
     </tab>
     <tab id="communication" sortorder="20">
