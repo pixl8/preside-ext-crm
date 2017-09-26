@@ -32,5 +32,9 @@ component {
     property name="linkedin"           type="string"              dbtype="varchar"              maxLength="256" required=false;
 
     property name="addresses"          relationship="one-to-many"  relatedTo="organisation_address" relationshipKey="organisation";
-    property name="persons"            relationship="many-to-many" relatedTo="person"               relatedVia="contact";
+    property name="persons"            relationship="one-to-many"  relatedTo="person"               relationshipKey="organisation";
+
+    property name="person_links"                relationship="one-to-many"  relatedTo="organisation_person_link"       relationshipKey="source";
+    property name="outgoing_organisation_links" relationship="one-to-many"  relatedTo="organisation_organisation_link" relationshipKey="source";
+    property name="incoming_organisation_links" relationship="one-to-many"  relatedTo="organisation_organisation_link" relationshipKey="target";
 }

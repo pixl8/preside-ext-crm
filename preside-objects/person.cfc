@@ -15,6 +15,7 @@ component {
     property name="known_as"           type="string" dbtype="varchar" maxLength="128"  required=false;
     property name="job_title"          type="string" dbtype="varchar" maxLength="256"  required=false;
 
+    property name="organisation"       relationship="many-to-one" relatedTo="organisation"         required=false;
     property name="title"              relationship="many-to-one" relatedTo="lookup_person_title"  required=false;
     property name="photo"              relationship="many-to-one" relatedTo="asset"                required=false allowedTypes="image";
     property name="type"               relationship="many-to-one" relatedTo="lookup_person_type"   required=true;
@@ -40,6 +41,9 @@ component {
     property name="instagram"          type="string" dbtype="varchar" maxLength="256" required=false;
     property name="linkedin"           type="string" dbtype="varchar" maxLength="256" required=false;
 
-    property name="addresses"          relationship="one-to-many"  relatedTo="person_address" relationshipKey="person";
-    property name="organisations"      relationship="many-to-many" relatedTo="organisation"   relatedVia="contact";
+    property name="addresses"             relationship="one-to-many"  relatedTo="person_address" relationshipKey="person";
+
+    property name="organisation_links"    relationship="one-to-many"  relatedTo="organisation_person_link" relationshipKey="target";
+    property name="outgoing_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="source";
+    property name="incoming_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="target";
 }

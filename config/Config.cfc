@@ -25,11 +25,9 @@ component {
 
         settings.adminPermissions[ "organisationmanager" ] = [ "add", "edit", "delete", "read" ];
         settings.adminPermissions[ "personmanager"       ] = [ "add", "edit", "delete", "read" ];
-        settings.adminPermissions[ "contactmanager"      ] = [ "add", "edit", "delete", "read" ];
 
         settings.adminRoles.sysAdmin.append( "organisationmanager.*" );
         settings.adminRoles.sysAdmin.append( "personmanager.*"       );
-        settings.adminRoles.sysAdmin.append( "contactmanager.*"      );
 
         settings.email.recipientTypes.person = {
               parameters             = [ "first_name", "last_name", "primary_email" ]

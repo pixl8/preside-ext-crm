@@ -1,7 +1,7 @@
 # Preside Extension: Basic CRM functionality
 
 This is an extension for [Preside](https://www.preside.org) that adds basic CRM functionality.
-It adds objects to manage organisations, persons, contacts along with various lookup types, statuses, etc.
+It adds objects to manage organisations and persons along with various lookup types, statuses, etc.
 
 ## Installation
 
