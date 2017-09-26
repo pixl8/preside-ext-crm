@@ -34,9 +34,16 @@
             <field binding="organisation.linkedin"  control="textinput" sortorder="10" />
         </fieldset>
     </tab>
-    <tab id="addresses" sortorder="40">
+    <tab id="addresses" sortorder="30">
         <fieldset id="addresses" sortorder="10">
             <field binding="organisation.addresses" control="onetomanymanager" sortorder="10" />
+        </fieldset>
+    </tab>
+    <tab id="links" sortorder="40">
+        <fieldset id="links" sortorder="10">
+            <field binding="organisation.person_links"                control="onetomanymanager" sortorder="10" />
+            <field binding="organisation.outgoing_organisation_links" control="onetomanymanager" sortorder="20" />
+            <field binding="organisation.incoming_organisation_links" control="onetomanymanager" sortorder="30" />
         </fieldset>
     </tab>
 </form>

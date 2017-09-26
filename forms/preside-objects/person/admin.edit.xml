@@ -49,4 +49,11 @@
             <field binding="person.addresses" control="onetomanymanager" sortorder="10" />
         </fieldset>
     </tab>
+    <tab id="links" sortorder="40">
+        <fieldset id="links" sortorder="10">
+            <field binding="person.organisation_links"    control="onetomanymanager" sortorder="10" />
+            <field binding="person.outgoing_person_links" control="onetomanymanager" sortorder="20" />
+            <field binding="person.incoming_person_links" control="onetomanymanager" sortorder="30" />
+        </fieldset>
+    </tab>
 </form>

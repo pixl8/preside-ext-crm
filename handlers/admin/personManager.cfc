@@ -228,7 +228,7 @@ component extends="preside.system.base.AdminHandler" {
 			, private        = true
 			, eventArguments = {
 				  object        = "person"
-				, gridFields    = "title,first_name,last_name,type,status,datecreated,datemodified"
+				, gridFields    = "title,first_name,last_name,organisation,type,status,datecreated,datemodified"
 				, actionsView   = "admin.personManager._gridActions"
 			}
 		);
