@@ -1,6 +1,6 @@
 <cfscript>
 	objectName          = "person"
-	gridFields          = ["title","first_name","last_name","type","status","datecreated","datemodified"];
+	gridFields          = [ "title", "first_name", "last_name", "organisation", "type", "status", "datecreated", "datemodified" ];
 	objectTitle         = translateResource( uri = "preside-objects.#objectName#:title"         , defaultValue = objectName );
 	objectTitleSingular = translateResource( uri = "preside-objects.#objectName#:title.singular", defaultValue = objectName );
 	objectDescription   = translateResource( uri = "preside-objects.#objectName#:description"   , defaultValue = "" );
