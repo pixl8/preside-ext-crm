@@ -41,37 +41,10 @@ component {
         );
     }
 
-    public void function ensureUniqueMainOrganisationForPerson( required struct objectData ) {
-
-        // per person we want only one single contact to be set as the main organisation for this person
-        _ensureUniqueFlaggedObject(
-              objectName            = "contact"
-            , fieldName             = "is_main_organisation"
-            , parentObjectFieldName = "person"
-            , objectData            = arguments.objectData
-        );
-    }
-
-    public void function ensureUniqueMainPersonForOrganisation( required struct objectData ) {
-
-        // per organisation we want only one single contact to be set as the main contact for this organisation
-        _ensureUniqueFlaggedObject(
-              objectName            = "contact"
-            , fieldName             = "is_main_contact"
-            , parentObjectFieldName = "organisation"
-            , objectData            = arguments.objectData
-        );
-    }
-
     public void function generateLabel( required string objectName, required struct objectData ) {
 
         if ( arguments.objectName == "person" ) {
             _generatePersonLabel( arguments.objectData );
-            return;
-        }
-
-        if ( arguments.objectName == "contact" ) {
-            _generateContactLabel( arguments.objectData );
             return;
         }
 
@@ -151,25 +124,6 @@ component {
         if ( len( firstName ) && len( lastName ) ) {
             arguments.objectData.label = firstName & " " & lastName;
         }
-    }
-
-    private void function _generateContactLabel( required struct objectData ) {
-
-        var organisationId = arguments.objectData.organisation ?: "";
-        var personId       = arguments.objectData.person       ?: "";
-
-        if ( isEmpty( organisationId ) || isEmpty( personId ) ) {
-            return;
-        }
-
-        var organisation = organisationDao.selectData( id=arguments.objectData.organisation );
-        var person       = personDao.selectData( id=arguments.objectData.person );
-
-        if ( isEmpty( organisation ) || isEmpty( person ) ) {
-            return;
-        }
-
-        arguments.objectData.label = organisation.name & ": " & person.label;
     }
 
     private void function _generateAddressLabel( required struct objectData ) {

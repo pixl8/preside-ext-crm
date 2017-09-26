@@ -14,13 +14,6 @@
             , active = ReFindNoCase( "\.?personManager$", event.getCurrentHandler() )
         } );
     }
-    if ( hasCmsPermission( "contactmanager.read" ) ) {
-        subMenuItems.append( {
-              link  = event.buildAdminLink( linkTo="contactManager" )
-            , title = translateResource( "cms:crmDataManager.contacts" )
-            , active = ReFindNoCase( "\.?contactManager$", event.getCurrentHandler() )
-        } );
-    }
 
     if ( subMenuItems.len() ) {
         isActive = false;
