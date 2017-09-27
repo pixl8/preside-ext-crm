@@ -1,6 +1,7 @@
 /**
 * @dataManagerGridFields source,link_type,target,description,datecreated,datemodified
 * @nolabel               true
+* @feature               crmLinks
 */
 component {
     property name="source"    relationship="many-to-one" relatedTo="person"                         required=true;

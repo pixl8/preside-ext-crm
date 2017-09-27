@@ -43,7 +43,7 @@ component {
 
     property name="addresses"             relationship="one-to-many"  relatedTo="person_address" relationshipKey="person";
 
-    property name="organisation_links"    relationship="one-to-many"  relatedTo="organisation_person_link" relationshipKey="target";
-    property name="outgoing_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="source";
-    property name="incoming_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="target";
+    property name="organisation_links"    relationship="one-to-many"  relatedTo="organisation_person_link" relationshipKey="target" feature="crmLinks";
+    property name="outgoing_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="source" feature="crmLinks";
+    property name="incoming_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="target" feature="crmLinks";
 }
