@@ -35,5 +35,7 @@ component {
             , gridFields             = [ "first_name", "last_name", "primary_email" ]
             , recipientIdLogProperty = "person_recipient"
         };
+
+        settings.features.crmLinks = { enabled=true , siteTemplates=[ "*" ], widgets=[] };
     }
 }

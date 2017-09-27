@@ -49,7 +49,7 @@
             <field binding="person.addresses" control="onetomanymanager" sortorder="10" />
         </fieldset>
     </tab>
-    <tab id="links" sortorder="40">
+    <tab id="links" sortorder="40" feature="crmLinks">
         <fieldset id="links" sortorder="10">
             <field binding="person.organisation_links"    control="onetomanymanager" sortorder="10" />
             <field binding="person.outgoing_person_links" control="onetomanymanager" sortorder="20" />
