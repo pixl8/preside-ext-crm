@@ -1,5 +1,7 @@
 /**
-* @dataManagerGridFields address_type,is_primary,line1,line2,line3,town,county,post_code,country,datecreated,datemodified
+* @dataManagerGroup      person
+* @dataManagerGridFields person,address_type,is_primary,line1,line2,line3,town,county,post_code,country,datecreated,datemodified
+* @minimalGridFields     address_type,is_primary,line1,town,post_code
 */
 component {
     property name="person"       relationship="many-to-one"      relatedTo="person"              required=true;
