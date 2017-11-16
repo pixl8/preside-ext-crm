@@ -1,5 +1,6 @@
 /**
 * @dataManagerGridFields source,link_type,target,description,datecreated,datemodified
+* @minimalGridFields     source,target,link_type
 * @nolabel               true
 * @feature               crmLinks
 */

@@ -49,11 +49,21 @@
             <field binding="person.addresses" control="onetomanymanager" sortorder="10" />
         </fieldset>
     </tab>
-    <tab id="links" sortorder="40" feature="crmLinks">
+    <tab id="notes" sortorder="40" feature="crmNotes">
+        <fieldset id="notes" sortorder="10">
+            <field binding="person.notes" control="onetomanymanager" sortorder="10" />
+        </fieldset>
+    </tab>
+    <tab id="links" sortorder="50" feature="crmLinks">
         <fieldset id="links" sortorder="10">
             <field binding="person.organisation_links"    control="onetomanymanager" sortorder="10" />
             <field binding="person.outgoing_person_links" control="onetomanymanager" sortorder="20" />
             <field binding="person.incoming_person_links" control="onetomanymanager" sortorder="30" />
+        </fieldset>
+    </tab>
+    <tab id="tags" sortorder="60" feature="crmTags">
+        <fieldset id="tags" sortorder="10">
+            <field binding="person.tags" />
         </fieldset>
     </tab>
 </form>

@@ -1,8 +1,9 @@
 component extends="preside.system.base.AdminHandler" {
 
-	property name="dao"                inject="presidecms:object:person";
-	property name="messageBox"         inject="coldbox:plugin:messageBox";
-	property name="dataManagerService" inject="dataManagerService";
+	property name="dao"                   inject="presidecms:object:person";
+	property name="messageBox"            inject="coldbox:plugin:messageBox";
+	property name="dataManagerService"    inject="dataManagerService";
+	property name="adminDataViewsService" inject="adminDataViewsService";
 
 	function prehandler( event, rc, prc ) {
 		super.preHandler( argumentCollection = arguments );
@@ -236,6 +237,7 @@ component extends="preside.system.base.AdminHandler" {
 
 	private string function _gridActions( event, rc, prc, args={} ) {
 		args.id                = args.id ?: "";
+		args.viewRecordLink    = event.buildAdminLink( linkTo="personManager.viewRecord"    , queryString="id=" & args.id );
 		args.deleteRecordLink  = event.buildAdminLink( linkTo="personManager.deleteAction"  , queryString="id=" & args.id );
 		args.editRecordLink    = event.buildAdminLink( linkTo="personManager.edit"          , queryString="id=" & args.id );
 		args.viewHistoryLink   = event.buildAdminLink( linkTo="personManager.versionHistory", queryString="id=" & args.id );
@@ -278,6 +280,54 @@ component extends="preside.system.base.AdminHandler" {
             , eventArguments = { objectName="person" }
         );
     }
+
+    public void function viewRecord( event, rc, prc ) {
+
+		_checkPermissions( event=event, key="read" );
+
+		var object   = rc.object   ?: "";
+		var recordId = rc.id       ?: "";
+		var version  = Val( rc.version ?: "" );
+
+		prc.record = dao.selectData(
+			  filter             = { id=recordId }
+			, fromVersionTable   = true
+			, specificVersion    = version
+		);
+
+		if ( !prc.record.recordCount ) {
+			messageBox.error( translateResource( uri="personmanager:record.not.found.error" ) );
+			setNextEvent( url=event.buildAdminLink( linkTo="personManager" ) );
+		}
+		prc.record = queryRowToStruct( prc.record );
+
+		prc.renderedRecord = adminDataViewsService.renderObjectRecord(
+			  objectName = "person"
+			, recordId   = recordId
+			, version    = version
+		);
+
+		prc.canEdit   = hasCmsPermission( "personmanager.edit"   );
+		prc.canDelete = hasCmsPermission( "personmanager.delete" );
+
+		prc.deleteRecordLink = event.buildAdminLink( linkTo="personManager.deleteAction", queryString="id=" & recordId );
+		prc.editRecordLink   = event.buildAdminLink( linkTo="personManager.edit"        , queryString="id=" & recordId );
+
+		prc.pageTitle    = translateResource( uri="personmanager:viewrecord.page.title" );
+		prc.pageSubTitle = translateResource( uri="personmanager:viewrecord.page.subTitle", data=[ prc.record.label ] );
+
+		event.addAdminBreadCrumb(
+			  title = translateResource( uri="personmanager:viewrecord.breadcrumb"  , data=[ prc.record.label ] )
+			, link  = event.buildAdminLink( linkTo="personManager.viewRecord", queryString="id=" & recordId )
+		);
+	}
+
+    private string function buildViewLink( event, rc, prc, objectName, recordId ) {
+		return event.buildAdminLink(
+			  linkto      = "personManager.viewRecord"
+			, queryString = "id=" & arguments.recordId 
+		);
+	}
 
 // private utility
 	private void function _checkPermissions( required any event, required string key ) {

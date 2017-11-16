@@ -1,6 +1,7 @@
 /**
 * @dataManagerGroup      lookups
 * @dataManagerGridFields label,outward_description,inward_description,datecreated,datemodified
+* @minimalGridFields     label
 * @dataExportFields      id,label,outward_description,inward_description,datecreated,datemodified
 * @versioned             false
 * @feature               crmLinks

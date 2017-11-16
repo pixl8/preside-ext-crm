@@ -37,5 +37,7 @@ component {
         };
 
         settings.features.crmLinks = { enabled=true , siteTemplates=[ "*" ], widgets=[] };
+        settings.features.crmTags  = { enabled=false, siteTemplates=[ "*" ], widgets=[] };
+        settings.features.crmNotes = { enabled=false, siteTemplates=[ "*" ], widgets=[] };
     }
 }

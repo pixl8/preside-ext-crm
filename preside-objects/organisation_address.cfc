@@ -1,5 +1,7 @@
 /**
-* @dataManagerGridFields address_type,is_primary,is_head_office,line1,line2,line3,town,county,post_code,country,datecreated,datemodified
+* @dataManagerGroup      organisation
+* @dataManagerGridFields organisation,address_type,is_primary,is_head_office,line1,line2,line3,town,county,post_code,country,datecreated,datemodified
+* @minimalGridFields     address_type,is_primary,is_head_office,line1,town,post_code
 */
 component {
     property name="organisation"   relationship="many-to-one"      relatedTo="organisation"        required=true;

@@ -1,8 +1,9 @@
 component extends="preside.system.base.AdminHandler" {
 
-	property name="dao"                inject="presidecms:object:organisation";
-	property name="messageBox"         inject="coldbox:plugin:messageBox";
-	property name="dataManagerService" inject="dataManagerService";
+	property name="dao"                   inject="presidecms:object:organisation";
+	property name="messageBox"            inject="coldbox:plugin:messageBox";
+	property name="dataManagerService"    inject="dataManagerService";
+	property name="adminDataViewsService" inject="adminDataViewsService";
 
 	function prehandler( event, rc, prc ) {
 		super.preHandler( argumentCollection = arguments );
@@ -236,6 +237,7 @@ component extends="preside.system.base.AdminHandler" {
 
 	private string function _gridActions( event, rc, prc, args={} ) {
 		args.id                = args.id ?: "";
+		args.viewRecordLink    = event.buildAdminLink( linkTo="organisationManager.viewRecord"    , queryString="id=" & args.id );
 		args.deleteRecordLink  = event.buildAdminLink( linkTo="organisationManager.deleteAction"  , queryString="id=" & args.id );
 		args.editRecordLink    = event.buildAdminLink( linkTo="organisationManager.edit"          , queryString="id=" & args.id );
 		args.viewHistoryLink   = event.buildAdminLink( linkTo="organisationManager.versionHistory", queryString="id=" & args.id );
@@ -243,7 +245,7 @@ component extends="preside.system.base.AdminHandler" {
 		args.objectName        = "organisation";
 		args.canEdit           = hasCmsPermission( "organisationmanager.edit"   );
 		args.canDelete         = hasCmsPermission( "organisationmanager.delete" );
-		args.canViewHistory    = hasCmsPermission( "organisationmanager.view"   );
+		args.canViewHistory    = hasCmsPermission( "organisationmanager.read"   );
 
 		return renderView( view="/admin/organisationManager/_gridActions", args=args );
 	}
@@ -278,6 +280,54 @@ component extends="preside.system.base.AdminHandler" {
             , eventArguments = { objectName="organisation" }
         );
     }
+
+    public void function viewRecord( event, rc, prc ) {
+
+		_checkPermissions( event=event, key="read" );
+
+		var object   = rc.object   ?: "";
+		var recordId = rc.id       ?: "";
+		var version  = Val( rc.version ?: "" );
+
+		prc.record = dao.selectData(
+			  filter             = { id=recordId }
+			, fromVersionTable   = true
+			, specificVersion    = version
+		);
+
+		if ( !prc.record.recordCount ) {
+			messageBox.error( translateResource( uri="organisationmanager:record.not.found.error" ) );
+			setNextEvent( url=event.buildAdminLink( linkTo="organisationManager" ) );
+		}
+		prc.record = queryRowToStruct( prc.record );
+
+		prc.renderedRecord = adminDataViewsService.renderObjectRecord(
+			  objectName = "organisation"
+			, recordId   = recordId
+			, version    = version
+		);
+
+		prc.canEdit   = hasCmsPermission( "organisationmanager.edit"   );
+		prc.canDelete = hasCmsPermission( "organisationmanager.delete" );
+
+		prc.deleteRecordLink = event.buildAdminLink( linkTo="organisationManager.deleteAction", queryString="id=" & recordId );
+		prc.editRecordLink   = event.buildAdminLink( linkTo="organisationManager.edit"        , queryString="id=" & recordId );
+
+		prc.pageTitle    = translateResource( uri="organisationmanager:viewrecord.page.title" );
+		prc.pageSubTitle = translateResource( uri="organisationmanager:viewrecord.page.subTitle", data=[ prc.record.name ] );
+
+		event.addAdminBreadCrumb(
+			  title = translateResource( uri="organisationmanager:viewrecord.breadcrumb"  , data=[ prc.record.name ] )
+			, link  = event.buildAdminLink( linkTo="organisationManager.viewRecord", queryString="id=" & recordId )
+		);
+	}
+
+    private string function buildViewLink( event, rc, prc, objectName, recordId ) {
+		return event.buildAdminLink(
+			  linkto      = "organisationManager.viewRecord"
+			, queryString = "id=" & arguments.recordId 
+		);
+	}
 
 // private utility
 	private void function _checkPermissions( required any event, required string key ) {

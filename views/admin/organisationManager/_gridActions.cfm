@@ -1,3 +1,4 @@
+<cfparam name="args.viewRecordLink"    type="string" />
 <cfparam name="args.deleteRecordLink"  type="string" />
 <cfparam name="args.editRecordLink"    type="string" />
 <cfparam name="args.viewHistoryLink"   type="string" />
@@ -9,6 +10,10 @@
 
 <cfoutput>
 	<div class="action-buttons btn-group">
+		<a href="#args.viewRecordLink#" data-context-key="v">
+			<i class="fa fa-fw fa-eye"></i>
+		</a>
+
 		<cfif args.canEdit>
 			<a href="#args.editRecordLink#" data-context-key="e">
 				<i class="fa fa-pencil"></i>

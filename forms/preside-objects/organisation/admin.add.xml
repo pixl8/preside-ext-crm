@@ -34,4 +34,9 @@
             <field binding="organisation.linkedin"  control="textinput" sortorder="10" />
         </fieldset>
     </tab>
+    <tab id="tags" sortorder="60" feature="crmTags">
+        <fieldset id="tags" sortorder="10">
+            <field binding="organisation.tags" />
+        </fieldset>
+    </tab>
 </form>
