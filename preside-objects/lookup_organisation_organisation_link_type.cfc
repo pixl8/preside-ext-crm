@@ -4,6 +4,7 @@
 * @dataExportFields      id,label,outward_description,inward_description,datecreated,datemodified
 * @versioned             false
 * @feature               crmLinks
+* @minimalGridFields     label
 */
 component {
     property name="label" uniqueindexes="label";

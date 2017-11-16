@@ -44,4 +44,9 @@
             <field binding="person.linkedin"  control="textinput" sortorder="50" />
         </fieldset>
     </tab>
+    <tab id="tags" sortorder="60" feature="crmTags">
+        <fieldset id="tags" sortorder="10">
+            <field binding="person.tags" />
+        </fieldset>
+    </tab>
 </form>
