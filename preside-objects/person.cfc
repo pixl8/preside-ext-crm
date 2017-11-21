@@ -51,4 +51,6 @@ component {
     property name="organisation_links"    relationship="one-to-many"  relatedTo="organisation_person_link" relationshipKey="target" feature="crmLinks" adminViewGroup="links" sortorder=80;
     property name="outgoing_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="source" feature="crmLinks" adminViewGroup="links" sortorder=81;
     property name="incoming_person_links" relationship="one-to-many"  relatedTo="person_person_link"       relationshipKey="target" feature="crmLinks" adminViewGroup="links" sortorder=82;
+
+    property name="email_logs" relationship="one-to-many" relatedTo="email_template_send_log" relationshipkey="person_recipient" autofilter=false renderer="none";
 }

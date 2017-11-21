@@ -29,11 +29,18 @@ component {
         settings.adminRoles.sysAdmin.append( "organisationmanager.*" );
         settings.adminRoles.sysAdmin.append( "personmanager.*"       );
 
+        settings.rulesEngine.contexts.person = { object="person" };
+
         settings.email.recipientTypes.person = {
               parameters             = [ "first_name", "last_name", "primary_email" ]
             , filterObject           = "person"
             , gridFields             = [ "first_name", "last_name", "primary_email" ]
             , recipientIdLogProperty = "person_recipient"
+        };
+
+        settings.filters.personEmailTemplates = {
+              filter       = "email_template.recipient_type = :email_template.recipient_type or ( email_template.recipient_type is null and email_blueprint.recipient_type = :email_template.recipient_type )"
+            , filterParams = { "email_template.recipient_type" = "person" }
         };
 
         settings.features.crmLinks = { enabled=true , siteTemplates=[ "*" ], widgets=[] };
