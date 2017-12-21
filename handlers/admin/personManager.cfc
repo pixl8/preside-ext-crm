@@ -245,7 +245,7 @@ component extends="preside.system.base.AdminHandler" {
 		args.objectName        = "person";
 		args.canEdit           = hasCmsPermission( "personmanager.edit"   );
 		args.canDelete         = hasCmsPermission( "personmanager.delete" );
-		args.canViewHistory    = hasCmsPermission( "personmanager.view"   );
+		args.canViewHistory    = hasCmsPermission( "personmanager.read"   );
 
 		return renderView( view="/admin/personManager/_gridActions", args=args );
 	}
