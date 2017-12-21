@@ -1,10 +1,10 @@
 {
     "name":"Preside Extension: CRM",
-    "version":"1.4.1",
+    "version":"1.5.0",
     "author":"Pixl8 Interactive",
     "directory":"application/extensions",
     "type":"preside-extensions",
-    "location":"https://github.com/pixl8/preside-ext-crm/archive/v1.4.1.zip",
+    "location":"https://github.com/pixl8/preside-ext-crm/archive/v1.5.0.zip",
     "repository":{
         "type":"git",
         "URL":"https://github.com/pixl8/preside-ext-crm.git"

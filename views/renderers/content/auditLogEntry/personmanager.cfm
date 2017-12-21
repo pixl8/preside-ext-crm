@@ -6,7 +6,7 @@
 <cfscript>
 	userLink    = '<a href="#args.userLink#">#args.known_as#</a>';
 	recordLabel = renderLabel( "person", args.record_id );
-	recordUrl   = event.buildAdminLink( linkTo="personManager.edit", queryString="id=#args.record_id#" );
+	recordUrl   = event.buildAdminLink( linkTo="personManager.viewRecord", queryString="id=#args.record_id#" );
 	recordLink  = '<a href="#recordUrl#">#recordLabel#</a>';
 
 	message = translateResource( uri="auditlog.personmanager:#args.action#.message", data=[ userLink, recordLink ] );

@@ -3,3 +3,4 @@
 /tests/testbox
 /tests/testresults.xml
 /artifacts
+.zanata-cache
