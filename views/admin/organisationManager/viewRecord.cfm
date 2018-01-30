@@ -34,7 +34,7 @@
 		, id             = id
 		, version        = version
 		, isDraft        = IsTrue( prc.record._version_is_draft ?: "" )
-		, baseUrl        = event.buildAdminLink( linkto="organisationManager.viewRecord", queryString="id=#id#&version=" )
+		, baseUrl        = event.buildAdminLink( linkto="organisationManager.viewRecord", queryString="id=#id#&version={version}" )
 		, allVersionsUrl = event.buildAdminLink( linkto="organisationManager.versionHistory", queryString="id=#id#" )
 	} )#
 

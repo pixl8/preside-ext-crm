@@ -9,7 +9,7 @@
 		, id             = recordId
 		, version        = version
 		, isDraft        = IsTrue( prc.record._version_is_draft ?: "" )
-		, baseUrl        = event.buildAdminLink( linkto="personManager.edit", queryString="id=#recordId#&version=" )
+		, baseUrl        = event.buildAdminLink( linkto="personManager.edit", queryString="id=#recordId#&version={version}" )
 		, allVersionsUrl = event.buildAdminLink( linkto="personManager.versionHistory", queryString="id=#recordId#" )
 	} )#
 

@@ -1,9 +1,9 @@
 component extends="preside.system.base.AdminHandler" {
 
-	property name="dao"                   inject="presidecms:object:person";
-	property name="messageBox"            inject="coldbox:plugin:messageBox";
-	property name="dataManagerService"    inject="dataManagerService";
-	property name="adminDataViewsService" inject="adminDataViewsService";
+	property name="dao"                  inject="presidecms:object:person";
+	property name="messageBox"           inject="coldbox:plugin:messageBox";
+	property name="dataManagerService"   inject="dataManagerService";
+	property name="customizationService" inject="dataManagerCustomizationService";
 
 	function prehandler( event, rc, prc ) {
 		super.preHandler( argumentCollection = arguments );
@@ -301,11 +301,12 @@ component extends="preside.system.base.AdminHandler" {
 		}
 		prc.record = queryRowToStruct( prc.record );
 
-		prc.renderedRecord = adminDataViewsService.renderObjectRecord(
-			  objectName = "person"
-			, recordId   = recordId
-			, version    = version
-		);
+		prc.renderedRecord = customizationService.runCustomization(
+              objectName     = "person"
+            , action         = "renderRecord"
+            , defaultHandler = "admin.dataHelpers.viewRecord"
+            , args           = { objectName="person", recordId=recordId, version=version }
+        );
 
 		prc.canEdit   = hasCmsPermission( "personmanager.edit"   );
 		prc.canDelete = hasCmsPermission( "personmanager.delete" );
