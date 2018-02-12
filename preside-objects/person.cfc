@@ -1,8 +1,7 @@
 /**
-* @versioned                 true
-* @dataExportFields          id,title,first_name,last_name,date_of_birth,salutation,gender,job_title,type,status,primary_email,primary_phone,website,datecreated,datemodified
-* @minimalGridFields         first_name,last_name,type,status
-* @adminBuildViewLinkHandler admin.personManager.buildViewLink
+* @versioned         true
+* @dataExportFields  id,title,first_name,last_name,date_of_birth,salutation,gender,job_title,type,status,primary_email,primary_phone,website,datecreated,datemodified
+* @minimalGridFields first_name,last_name,type,status
 */
 component {
     
