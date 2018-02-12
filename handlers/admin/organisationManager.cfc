@@ -323,13 +323,6 @@ component extends="preside.system.base.AdminHandler" {
 		);
 	}
 
-    private string function buildViewLink( event, rc, prc, objectName, recordId ) {
-		return event.buildAdminLink(
-			  linkto      = "organisationManager.viewRecord"
-			, queryString = "id=" & arguments.recordId 
-		);
-	}
-
 // private utility
 	private void function _checkPermissions( required any event, required string key ) {
 		if ( !hasCmsPermission( "organisationmanager." & arguments.key ) ) {
