@@ -2,7 +2,7 @@
 * @labelfield              name
 * @versioned               true
 * @dataManagerEnabled      true
-* @dataManagerExportFields name,trading_as,type,status,datecreated,datemodified
+* @dataManagerGridFields   name,trading_as,type,status,datecreated,datemodified
 * @dataExportFields        id,name,trading_as,vat_number,type,status,primary_email,primary_phone,website,datecreated,datemodified
 * @minimalGridFields       name,type,status
 */
