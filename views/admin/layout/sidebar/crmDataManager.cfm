@@ -1,17 +1,17 @@
 <cfscript>
     subMenuItems = [];
-    if ( hasCmsPermission( "organisationmanager.read" ) ) {
+    if ( hasCmsPermission( "presideobject.organisation.read" ) ) {
         subMenuItems.append( {
-              link  = event.buildAdminLink( linkTo="organisationManager" )
+              link  = event.buildAdminLink( objectName="organisation" )
             , title = translateResource( "cms:crmDataManager.organisations" )
-            , active = ReFindNoCase( "\.?organisationManager$", event.getCurrentHandler() )
+            , active = ReFindNoCase( "^admin\.datamanager", event.getCurrentEvent() ) && ( prc.objectName ?: "" ) == "organisation"
         } );
     }
-    if ( hasCmsPermission( "personmanager.read" ) ) {
+    if ( hasCmsPermission( "presideobject.person.read" ) ) {
         subMenuItems.append( {
-              link  = event.buildAdminLink( linkTo="personManager" )
+              link  = event.buildAdminLink( objectName="person" )
             , title = translateResource( "cms:crmDataManager.persons" )
-            , active = ReFindNoCase( "\.?personManager$", event.getCurrentHandler() )
+            , active = ReFindNoCase( "^admin\.datamanager", event.getCurrentEvent() ) && ( prc.objectName ?: "" ) == "person"
         } );
     }
 
