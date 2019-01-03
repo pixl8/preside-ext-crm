@@ -11,8 +11,9 @@ From the root of your application, type the following command:
     box install preside-ext-crm
 
 ## Upgrade / Permissions
+There are two predefined roles, `personmanager`and `organisationmanager` which will allow users to manage all CRM data.
 
-If you upgrade from an earlier version please make sure that your user roles include the new `presideobject.person.*` and `presideobject.organisation.*` permissions instead of the now _retired_ `personmanager.*` and `organisationmanager.*` permissions.
+If you upgrade from an earlier version please make sure that your user roles include the new `crm.person.*` and `crm.organisation.*` permissions instead of the now _retired_ `personmanager.*` and `organisationmanager.*` permissions.
 
 ## Contribution
 

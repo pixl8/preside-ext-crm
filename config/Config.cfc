@@ -23,10 +23,17 @@ component {
 
         settings.adminSideBarItems.append( "crmDataManager" );
 
-        settings.adminPermissions.presideobject[ "organisation" ] = [ "read", "add", "edit", "delete", "viewversions" ];
-        settings.adminPermissions.presideobject[ "person"       ] = [ "read", "add", "edit", "delete", "viewversions" ];
-        settings.adminRoles.sysAdmin.append( "presideobject.organisation.*" );
-        settings.adminRoles.sysAdmin.append( "presideobject.person.*" );
+        settings.adminPermissions.crm = [
+            organisation = [ "read", "add", "edit", "delete", "navigate", "viewversions" ],
+            person       = [ "read", "add", "edit", "delete", "navigate", "viewversions" ]
+        ];
+
+        settings.adminRoles.personManager =       [ "crm.person.*"      , "crm.organisation.navigate", "crm.organisation.read" ];
+        settings.adminRoles.organisationManager = [ "crm.organisation.*", "crm.person.navigate"      , "crm.person.read" ];
+
+        // add some new permissions to some existing core roles
+        settings.adminRoles.sysAdmin = settings.roles.sysAdmin ?: [];
+        settings.adminRoles.sysAdmin.append( "crm.*" );
 
         settings.rulesEngine.contexts.person = { object="person" };
 
