@@ -1,17 +1,23 @@
 <cfscript>
     subMenuItems = [];
-    if ( hasCmsPermission( "organisationmanager.read" ) ) {
+    highlightRelatedObjects = {
+          organisation = "organisation,organisation_address,organisation_note,organisation_organisation_link,organisation_person_link"
+        , person       = "person,person_address,person_note,person_person_link"
+    };
+    if ( hasCmsPermission( permissionKey="crm.organisation.navigate" ) ) {
         subMenuItems.append( {
-              link  = event.buildAdminLink( linkTo="organisationManager" )
-            , title = translateResource( "cms:crmDataManager.organisations" )
-            , active = ReFindNoCase( "\.?organisationManager$", event.getCurrentHandler() )
+              link   = event.buildAdminLink( objectName="organisation" )
+            , title  = translateResource( "cms:crmDataManager.organisations" )
+            , active = ReFindNoCase( "^admin\.datamanager", event.getCurrentEvent() )
+                       && listFindNoCase( highlightRelatedObjects.organisation, ( prc.objectName ?: "" ) )
         } );
     }
-    if ( hasCmsPermission( "personmanager.read" ) ) {
+    if ( hasCmsPermission( permissionKey="crm.person.navigate" ) ) {
         subMenuItems.append( {
-              link  = event.buildAdminLink( linkTo="personManager" )
-            , title = translateResource( "cms:crmDataManager.persons" )
-            , active = ReFindNoCase( "\.?personManager$", event.getCurrentHandler() )
+               link   = event.buildAdminLink( objectName="person" )
+            ,  title  = translateResource( "cms:crmDataManager.persons" )
+            ,  active = ReFindNoCase( "^admin\.datamanager", event.getCurrentEvent() )
+                        && listFindNoCase( highlightRelatedObjects.person, ( prc.objectName ?: "" ) )
         } );
     }
 
