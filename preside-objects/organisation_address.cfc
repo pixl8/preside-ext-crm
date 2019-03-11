@@ -1,5 +1,5 @@
 /**
-* @dataManagerGroup      organisation
+* @dataManagerEnabled    true
 * @dataManagerGridFields organisation,address_type,is_primary,is_head_office,line1,line2,line3,town,county,post_code,country,datecreated,datemodified
 * @minimalGridFields     address_type,is_primary,is_head_office,line1,town,post_code
 */

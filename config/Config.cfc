@@ -1,5 +1,5 @@
 component {
-    
+
     public void function configure( required struct config ) output=false {
 
         // core settings that will effect Preside
@@ -23,11 +23,17 @@ component {
 
         settings.adminSideBarItems.append( "crmDataManager" );
 
-        settings.adminPermissions[ "organisationmanager" ] = [ "add", "edit", "delete", "read" ];
-        settings.adminPermissions[ "personmanager"       ] = [ "add", "edit", "delete", "read" ];
+        settings.adminPermissions.crm = [
+            organisation = [ "read", "add", "edit", "delete", "navigate", "viewversions" ],
+            person       = [ "read", "add", "edit", "delete", "navigate", "viewversions" ]
+        ];
 
-        settings.adminRoles.sysAdmin.append( "organisationmanager.*" );
-        settings.adminRoles.sysAdmin.append( "personmanager.*"       );
+        settings.adminRoles.personManager =       [ "crm.person.*"      , "crm.organisation.navigate", "crm.organisation.read" ];
+        settings.adminRoles.organisationManager = [ "crm.organisation.*", "crm.person.navigate"      , "crm.person.read" ];
+
+        // add some new permissions to some existing core roles
+        settings.adminRoles.sysAdmin = settings.roles.sysAdmin ?: [];
+        settings.adminRoles.sysAdmin.append( "crm.*" );
 
         settings.rulesEngine.contexts.person = { object="person" };
 

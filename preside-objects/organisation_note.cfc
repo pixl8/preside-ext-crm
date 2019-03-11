@@ -1,4 +1,5 @@
 /**
+* @dataManagerEnabled    true
 * @dataManagerGridFields label,description,datecreated,datemodified
 * @minimalGridFields     label,datecreated
 */

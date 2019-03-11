@@ -1,10 +1,12 @@
 /**
-* @versioned         true
-* @dataExportFields  id,title,first_name,last_name,date_of_birth,salutation,gender,job_title,type,status,primary_email,primary_phone,website,datecreated,datemodified
-* @minimalGridFields first_name,last_name,type,status
+* @versioned             true
+* @dataManagerEnabled    true
+* @dataManagerGridFields title,first_name,last_name,organisation,type,status,datecreated,datemodified
+* @dataExportFields      id,title,first_name,last_name,date_of_birth,salutation,gender,job_title,type,status,primary_email,primary_phone,website,datecreated,datemodified
+* @minimalGridFields     first_name,last_name,type,status
 */
 component {
-    
+
     property name="first_name"         type="string" dbtype="varchar" maxLength="128"  required=true sortorder=1;
     property name="last_name"          type="string" dbtype="varchar" maxLength="128"  required=true sortorder=2;
     property name="middle_names"       type="string" dbtype="varchar" maxLength="128"  required=false sortorder=3;
@@ -35,7 +37,7 @@ component {
     property name="phone2_type"        relationship="many-to-one" relatedTo="lookup_phone_type"                 required=false adminViewGroup="phone" sortorder=33;
     property name="phone3"             type="string"              dbtype="varchar"              maxLength="256" required=false adminViewGroup="phone" sortorder=34;
     property name="phone3_type"        relationship="many-to-one" relatedTo="lookup_phone_type"                 required=false adminViewGroup="phone" sortorder=35;
-    
+
     property name="website"            type="string" dbtype="varchar" maxLength="256" required=false adminViewGroup="web" sortorder=40;
     property name="twitter"            type="string" dbtype="varchar" maxLength="256" required=false adminViewGroup="web" sortorder=41;
     property name="facebook"           type="string" dbtype="varchar" maxLength="256" required=false adminViewGroup="web" sortorder=42;

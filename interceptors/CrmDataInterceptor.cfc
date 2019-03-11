@@ -9,7 +9,7 @@ component {
         if ( IsBoolean( interceptData.skipTrivialInterceptors ?: "" ) && interceptData.skipTrivialInterceptors ) {
             return;
         }
-        
+
         _maybeEnsureUniquePrimaryAddress( interceptData );
         _maybeEnsureUniqueHeadOfficeOrganisationAddress( interceptData );
         _maybeGenerateLabel( interceptData );
@@ -30,18 +30,6 @@ component {
     }
 
 // PRIVATE HELPERS
-    private void function _maybeEnsureUniquePrimaryAddress( interceptData ) {
-
-        var objectName = arguments.interceptData.objectname ?: "";
-
-        if ( [ "organisation_address", "person_address" ].findNoCase( objectName ) ) {
-            crmDataService.ensureUniquePrimaryAddress(
-                  objectName = objectName
-                , objectData = arguments.interceptData.data ?: {}
-            );
-        }
-    }
-
     private void function _maybeEnsureUniquePrimaryAddress( interceptData ) {
 
         var objectName = arguments.interceptData.objectname ?: "";
