@@ -32,7 +32,7 @@ component {
         settings.adminRoles.organisationManager = [ "crm.organisation.*", "crm.person.navigate"      , "crm.person.read" ];
 
         // add some new permissions to some existing core roles
-        settings.adminRoles.sysAdmin = settings.roles.sysAdmin ?: [];
+        settings.adminRoles.sysAdmin = settings.adminRoles.sysAdmin ?: [];
         settings.adminRoles.sysAdmin.append( "crm.*" );
 
         settings.rulesEngine.contexts.person = { object="person" };
